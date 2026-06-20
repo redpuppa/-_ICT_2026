@@ -5,13 +5,32 @@ uint8_t fnd_data[10] = {0x3F, 0x06, 0x5B, 0x4F, 0x66,
                           //D1, D2, D3, D4
 uint8_t fnd_digit_pin[4] = {14, 15, 16, 17};
 
+const int inputPin1 = 2;
+const int inputPin2 = 3;
+
 uint16_t count = 0;
 
+unsigned long pervMillis1 = 0;
+
+bool run_flag_count = false;  // false:stop, true:start
+
 void fndDisplay(uint8_t num);
+
+void sw1_Pressed(void){
+  run_flag_count = !run_flag_count;
+}
+
+void sw2_Pressed(void){
+  count = 0;
+  run_flag_count = false;
+}
 
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
+
+  pinMode(inputPin1, INPUT);
+  pinMode(inputPin2, INPUT);
 
   for(int i=0; i<8; i++){
     pinMode(fnd_data_pin[i], OUTPUT);
@@ -21,12 +40,27 @@ void setup() {
     pinMode(fnd_digit_pin[i], OUTPUT);
     digitalWrite(fnd_digit_pin[i], LOW);
   }
+
+  // 인터럽트 설정
+  attachInterrupt(digitalPinToInterrupt(inputPin1), sw1_Pressed, FALLING);
+  attachInterrupt(digitalPinToInterrupt(inputPin2), sw2_Pressed, FALLING);
+
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
-  fndDisplayArray(1234);
-  // delay(1000);
+  unsigned long now = millis();
+
+  // count_task
+  if(run_flag_count == true)
+  {
+    if(now - pervMillis1 >= 1000){
+      pervMillis1 = now;
+      count++;
+    }
+  }
+
+  fndDisplayArray(count);
 }
 
 // 한 번 호출하면 1234를 한 프레임 스캔합니다.

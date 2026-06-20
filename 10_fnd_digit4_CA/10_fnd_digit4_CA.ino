@@ -1,3 +1,4 @@
+
                     // a, b, c, d, e, f, g, dp
 uint8_t fnd_data_pin[8] = { 4, 5, 6, 7, 8, 9, 10, 11};
 uint8_t fnd_data[10] = {0x3F, 0x06, 0x5B, 0x4F, 0x66, 

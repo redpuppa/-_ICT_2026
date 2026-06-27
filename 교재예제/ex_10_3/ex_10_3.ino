@@ -1,70 +1,63 @@
 /*
   예제 10.3
-  자동차용 초음파 후방감지기
- */
+  BLE를 이용한 내장 LED 제어
+*/
 
-// 부저 핀, 트리거 핀, 에코 핀 번호를 설정한다.
-const char buzzerPin = 9;
-const char trigPin = 13;
-const char echoPin = 12;
+#include <ArduinoBLE.h>
 
- 
-// 거리 측정에 필요한 펄스 폭과 거리 변수 설정  
-int pulseWidth;
-int distance;
-int distanceOld;
+// LED 서비스와 특성(Characteristic) 정의
+// UUID는 BLE에서 서비스/특성을 구분하는 고유 식별자, [guid]::NewGuid(), uuidgen 
+BLEService ledService("19B10000-E8F2-537E-4F6C-D104768A1214");
 
-// 부저 출력 주기 변수 설정
-int buzzerDuration;
-  
+// 읽기/쓰기 가능한 1바이트 특성 — 스마트폰이 이 값에 0 또는 1을 씀
+BLEByteCharacteristic switchChar("19B10001-E8F2-537E-4F6C-D104768A1214", BLERead | BLEWrite);
+
 void setup() {
-  // 시리얼 통신 설정
-  Serial.begin (9600);
-  // 트리거 핀은 출력으로, 에코핀은 입력으로 설정
-  pinMode(trigPin, OUTPUT);
-  pinMode(echoPin, INPUT);
-  // 부저핀을 출력으로 설정한다
-  pinMode(buzzerPin, OUTPUT);
-  // 트리거 핀의 초기값을 LOW로 한다
-  digitalWrite(trigPin, LOW);
+  Serial.begin(9600);
+  while (!Serial) { }
+
+  pinMode(LED_BUILTIN, OUTPUT);     // 내장 LED 출력 설정
+
+  // ----- BLE 초기화 -----
+  if (!BLE.begin()) {
+    Serial.println("BLE 시작 실패!");
+    while (1);                      // 실패 시 정지
+  }
+
+  BLE.setLocalName("UNO R4 LED Control");     // 스마트폰에 표시될 장치 이름(서로 다르게)
+  BLE.setAdvertisedService(ledService);
+  ledService.addCharacteristic(switchChar);   // 서비스에 특성 추가
+  BLE.addService(ledService);                 // 서비스 등록
+
+  switchChar.writeValue(0);         // 초기값: LED 꺼짐
+
+  BLE.advertise();                  // 광고 시작 (연결 대기)
+  Serial.println("BLE 대기 중... 'UNO R4 LED'로 연결하세요");
 }
 
-void loop(){
-  // 10us의 트리거 신호를 HC-SR04로 내보낸다.
-  digitalWrite(trigPin, HIGH);
-  delayMicroseconds(10);
-  digitalWrite(trigPin, LOW);
+void loop() {
+  // 연결된 중앙 장치(스마트폰 등)를 찾음
+  BLEDevice central = BLE.central();
 
-  // Echo 펄스 폭을 측정하여 pulseWidth 변수에 저장한다.  
-  pulseWidth = pulseIn(echoPin, HIGH);
-  // 거리를 계산한다.
-  distance = pulseWidth / 58;  
+  if (central) {
+    Serial.print("연결됨: ");
+    Serial.println(central.address());
 
-  // 감지거리인 2~200cm 범위의 거리값만 사용한다.
-  if(distance <= 100 || distance >= 2){  
-    // 각 거리 별로 부저 주기를 설정한다
-    if((distance <= 100)&&(distance >= 50)){ // 1~0.5m
-      buzzerDuration = 1000;    
-      buzzerOn();
-    }	
-    else if((distance < 50)&&(distance >= 20)){ // 0.5~0.2m
-      buzzerDuration = 500;    
-      buzzerOn();
+    // 연결이 유지되는 동안 반복
+    while (central.connected()) {
+      // 특성 값이 새로 써지면(스마트폰이 값을 보내면)
+      if (switchChar.written()) {
+        if (switchChar.value()) {          // 값이 1이면
+          digitalWrite(LED_BUILTIN, HIGH); // LED 켜기
+          Serial.println("LED ON");
+        } else {                           // 값이 0이면
+          digitalWrite(LED_BUILTIN, LOW);  // LED 끄기
+          Serial.println("LED OFF");
+        }
+      }
     }
-    else if(distance < 20){ // 0.2m 이내
-      buzzerDuration = 100;
-      buzzerOn();      
-    }
-    else{
-      noTone(buzzerPin);  
-    }
-    delay(buzzerDuration);
-  };
-}
 
-void buzzerOn(){
-    // 523Hz로 0.1초간 부저 동작
-    tone(buzzerPin, 523);
-    delay(100);
-    noTone(buzzerPin);  
+    Serial.print("연결 해제: ");
+    Serial.println(central.address());
+  }
 }

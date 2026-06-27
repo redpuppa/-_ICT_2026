@@ -52,7 +52,7 @@ int frequency(char note){
   int notes = 8;
 
   char names[] = { 'c', 'd', 'e', 'f', 'g', 'a', 'b', 'C' };
-  int frequencies[] = {262, 294, 330, 349, 392, 440, 494, 523};
+  int frequencies[] = {524, 587, 659, 698, 784, 880, 988, 1047};
 
   // 노래 데이터를 주파수 값으로 변경하기 위해 반복하여 비교한다  
   for (i = 0; i < notes; i++){

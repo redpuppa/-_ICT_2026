@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 260" font-family="'Malgun Gothic','Segoe UI',sans-serif">
+  <defs>
+    <marker id="arwT" markerWidth="12" markerHeight="12" refX="8" refY="4" orient="auto"><path d="M0,0 L9,4 L0,8 Z" fill="#0a7d7d"/></marker>
+  </defs>
+  <rect x="0" y="0" width="780" height="260" fill="#ffffff"/>
+  <text x="20" y="30" font-size="23.8" font-weight="bold" fill="#1b1f24">그림 2-3. 방법 B — 보드가 PC로 밀어보내기 (TCP)</text>
+
+  <!-- Board -->
+  <rect x="40" y="90" width="230" height="100" rx="10" fill="#d7f0f0" stroke="#0a7d7d" stroke-width="2"/>
+  <text x="155" y="126" font-size="21" font-weight="bold" text-anchor="middle" fill="#065c5c">UNO R4 (클라이언트)</text>
+  <text x="155" y="152" font-size="17.5" text-anchor="middle" fill="#065c5c">analogRead(A0) → 전송</text>
+
+  <!-- PC -->
+  <rect x="510" y="90" width="230" height="100" rx="10" fill="#e8eefc" stroke="#3b6fd6" stroke-width="2"/>
+  <text x="625" y="122" font-size="21" font-weight="bold" text-anchor="middle" fill="#26468f">PC (TCP 서버 :9000)</text>
+  <text x="625" y="146" font-size="17.5" text-anchor="middle" fill="#26468f">pc_collect_B.py</text>
+  <text x="625" y="167" font-size="16.8" text-anchor="middle" fill="#26468f">CSV 저장 + 실시간 그래프</text>
+
+  <!-- arrow -->
+  <line x1="272" y1="140" x2="508" y2="140" stroke="#0a7d7d" stroke-width="2.5" marker-end="url(#arwT)"/>
+  <text x="390" y="128" font-size="17.5" text-anchor="middle" fill="#0a7d7d">접속 후 "adc,volt" 전송</text>
+  <text x="390" y="160" font-size="16.1" text-anchor="middle" fill="#555">(1초마다)</text>
+
+  <text x="390" y="228" font-size="16.8" text-anchor="middle" fill="#666">역할이 A와 반대 — PC가 서버, 보드가 값을 "밀어보낸다" → 연속 수집에 최적</text>
+</svg>

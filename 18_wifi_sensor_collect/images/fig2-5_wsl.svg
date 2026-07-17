@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 360" font-family="'Malgun Gothic','Segoe UI',sans-serif">
+  <defs>
+    <marker id="a5" markerWidth="12" markerHeight="12" refX="8" refY="4" orient="auto"><path d="M0,0 L9,4 L0,8 Z" fill="#444"/></marker>
+  </defs>
+  <rect x="0" y="0" width="840" height="360" fill="#ffffff"/>
+  <text x="20" y="30" font-size="23.8" font-weight="bold" fill="#1b1f24">그림 2-5. 방법 C — 로컬 브로커(WSL) 네트워크 구조</text>
+
+  <!-- Board -->
+  <rect x="30" y="150" width="160" height="90" rx="10" fill="#d7f0f0" stroke="#0a7d7d" stroke-width="2"/>
+  <text x="110" y="188" font-size="19.6" font-weight="bold" text-anchor="middle" fill="#065c5c">UNO R4</text>
+  <text x="110" y="210" font-size="16.8" text-anchor="middle" fill="#065c5c">(발행자)</text>
+
+  <!-- Windows PC big box -->
+  <rect x="270" y="70" width="540" height="250" rx="12" fill="#f5f8ff" stroke="#3b6fd6" stroke-width="2"/>
+  <text x="290" y="98" font-size="19.6" font-weight="bold" fill="#26468f">Windows PC  (LAN IP 예: 192.168.0.10)</text>
+
+  <!-- Subscriber inside -->
+  <rect x="300" y="170" width="200" height="100" rx="10" fill="#e8eefc" stroke="#3b6fd6" stroke-width="2"/>
+  <text x="400" y="205" font-size="18.9" font-weight="bold" text-anchor="middle" fill="#26468f">pc_collect_C.py</text>
+  <text x="400" y="228" font-size="16.8" text-anchor="middle" fill="#26468f">구독 (localhost)</text>
+  <text x="400" y="248" font-size="16.8" text-anchor="middle" fill="#26468f">CSV + 그래프</text>
+
+  <!-- WSL box inside -->
+  <rect x="560" y="130" width="220" height="150" rx="10" fill="#eef7ee" stroke="#3f8f3f" stroke-width="2"/>
+  <text x="670" y="158" font-size="18.9" font-weight="bold" text-anchor="middle" fill="#2f6f2f">WSL (Ubuntu)</text>
+  <rect x="585" y="180" width="170" height="70" rx="8" fill="#fdeecb" stroke="#d8a53a" stroke-width="2"/>
+  <text x="670" y="210" font-size="18.2" font-weight="bold" text-anchor="middle" fill="#8a6410">mosquitto</text>
+  <text x="670" y="230" font-size="16.8" text-anchor="middle" fill="#8a6410">브로커 :1883</text>
+
+  <!-- arrows -->
+  <line x1="192" y1="180" x2="298" y2="150" stroke="#444" stroke-width="2.5" marker-end="url(#a5)"/>
+  <text x="240" y="150" font-size="15.4" text-anchor="middle" fill="#444">① LAN 접속</text>
+
+  <!-- entry to WSL (port forward) -->
+  <line x1="500" y1="150" x2="583" y2="200" stroke="#444" stroke-width="2.5" marker-end="url(#a5)"/>
+  <text x="545" y="150" font-size="15.4" text-anchor="middle" fill="#444">② 포트포워딩</text>
+
+  <!-- subscriber to broker -->
+  <line x1="502" y1="220" x2="583" y2="220" stroke="#444" stroke-width="2.5" marker-end="url(#a5)"/>
+  <text x="540" y="255" font-size="15.4" text-anchor="middle" fill="#444">③ localhost 구독</text>
+
+  <text x="420" y="345" font-size="16.1" text-anchor="middle" fill="#666">② 포트포워딩 = Windows11 미러 네트워킹 또는 netsh portproxy (README 2.4 참고) · 보드 broker[] = Windows LAN IP</text>
+</svg>

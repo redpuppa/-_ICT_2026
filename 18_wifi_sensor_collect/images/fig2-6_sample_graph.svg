@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 360" font-family="'Malgun Gothic','Segoe UI',sans-serif">
+  <rect x="0" y="0" width="720" height="360" fill="#ffffff"/>
+  <text x="20" y="30" font-size="23.8" font-weight="bold" fill="#1b1f24">그림 2-6. 예시 — 가변저항 값 실시간 그래프</text>
+
+  <!-- plot frame -->
+  <rect x="70" y="45" width="610" height="255" fill="#fbfcfe" stroke="#d0d7de" stroke-width="1"/>
+
+  <!-- horizontal gridlines + y labels (0,1024,2048,3072,4095) -->
+  <g stroke="#e6e9ee" stroke-width="1">
+    <line x1="70" y1="300" x2="680" y2="300"/>
+    <line x1="70" y1="235" x2="680" y2="235"/>
+    <line x1="70" y1="170" x2="680" y2="170"/>
+    <line x1="70" y1="105" x2="680" y2="105"/>
+    <line x1="70" y1="45"  x2="680" y2="45"/>
+  </g>
+  <g font-size="15.4" fill="#666" text-anchor="end">
+    <text x="62" y="304">0</text>
+    <text x="62" y="239">1024</text>
+    <text x="62" y="174">2048</text>
+    <text x="62" y="109">3072</text>
+    <text x="62" y="49">4095</text>
+  </g>
+
+  <!-- x labels -->
+  <g font-size="15.4" fill="#666" text-anchor="middle">
+    <text x="70"  y="318">0</text>
+    <text x="172" y="318">10</text>
+    <text x="273" y="318">20</text>
+    <text x="375" y="318">30</text>
+    <text x="477" y="318">40</text>
+    <text x="578" y="318">50</text>
+    <text x="680" y="318">60</text>
+  </g>
+  <text x="375" y="342" font-size="17.5" text-anchor="middle" fill="#444">시간 (s)</text>
+  <text x="24" y="175" font-size="17.5" text-anchor="middle" fill="#444" transform="rotate(-90 24 175)">ADC (0~4095)</text>
+
+  <!-- data line (potentiometer turning) -->
+  <polyline fill="none" stroke="#0a7d7d" stroke-width="2.5"
+    points="70,170 120.8,134.9 171.7,84.1 222.5,52.4 273.3,65.1 324.2,141.3 375,223.8 425.8,274.6 476.7,255.6 527.5,185.7 578.3,115.9 629.2,103.2 680,128.6"/>
+  <!-- data points -->
+  <g fill="#0a7d7d">
+    <circle cx="70" cy="170" r="3"/><circle cx="120.8" cy="134.9" r="3"/><circle cx="171.7" cy="84.1" r="3"/>
+    <circle cx="222.5" cy="52.4" r="3"/><circle cx="273.3" cy="65.1" r="3"/><circle cx="324.2" cy="141.3" r="3"/>
+    <circle cx="375" cy="223.8" r="3"/><circle cx="425.8" cy="274.6" r="3"/><circle cx="476.7" cy="255.6" r="3"/>
+    <circle cx="527.5" cy="185.7" r="3"/><circle cx="578.3" cy="115.9" r="3"/><circle cx="629.2" cy="103.2" r="3"/>
+    <circle cx="680" cy="128.6" r="3"/>
+  </g>
+
+  <text x="375" y="357" font-size="15.4" text-anchor="middle" fill="#888">가변저항 손잡이를 좌우로 돌렸을 때의 수집 예시 (세 방법 공통 출력 형태)</text>
+</svg>

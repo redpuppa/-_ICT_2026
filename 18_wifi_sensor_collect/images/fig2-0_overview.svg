@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 220" font-family="'Malgun Gothic','Segoe UI',sans-serif">
+  <defs>
+    <marker id="arw" markerWidth="12" markerHeight="12" refX="8" refY="4" orient="auto">
+      <path d="M0,0 L9,4 L0,8 Z" fill="#444"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="920" height="220" fill="#ffffff"/>
+  <text x="20" y="30" font-size="23.8" font-weight="bold" fill="#1b1f24">그림 2-0. 전체 데이터 흐름</text>
+
+  <!-- Sensor -->
+  <rect x="20" y="80" width="150" height="80" rx="10" fill="#eae6fb" stroke="#7a5cc0" stroke-width="2"/>
+  <text x="95" y="112" font-size="21" font-weight="bold" text-anchor="middle" fill="#3d2a70">가변저항</text>
+  <text x="95" y="136" font-size="18.2" text-anchor="middle" fill="#3d2a70">(A0 입력)</text>
+
+  <!-- Board -->
+  <rect x="240" y="80" width="180" height="80" rx="10" fill="#d7f0f0" stroke="#0a7d7d" stroke-width="2"/>
+  <text x="330" y="110" font-size="21" font-weight="bold" text-anchor="middle" fill="#065c5c">UNO R4 WiFi</text>
+  <text x="330" y="136" font-size="18.2" text-anchor="middle" fill="#065c5c">analogRead(A0)</text>
+
+  <!-- Router -->
+  <rect x="490" y="80" width="130" height="80" rx="10" fill="#fdeecb" stroke="#d8a53a" stroke-width="2"/>
+  <text x="555" y="112" font-size="21" font-weight="bold" text-anchor="middle" fill="#8a6410">WiFi</text>
+  <text x="555" y="136" font-size="18.2" text-anchor="middle" fill="#8a6410">공유기</text>
+
+  <!-- PC (넓힘) -->
+  <rect x="680" y="80" width="220" height="80" rx="10" fill="#e8eefc" stroke="#3b6fd6" stroke-width="2"/>
+  <text x="790" y="110" font-size="21" font-weight="bold" text-anchor="middle" fill="#26468f">PC</text>
+  <text x="790" y="136" font-size="17.5" text-anchor="middle" fill="#26468f">CSV + 실시간 그래프</text>
+
+  <!-- arrows -->
+  <line x1="172" y1="120" x2="236" y2="120" stroke="#444" stroke-width="2" marker-end="url(#arw)"/>
+  <text x="204" y="108" font-size="15.4" text-anchor="middle" fill="#555">전압</text>
+
+  <line x1="422" y1="120" x2="486" y2="120" stroke="#444" stroke-width="2" marker-end="url(#arw)"/>
+  <line x1="622" y1="120" x2="676" y2="120" stroke="#444" stroke-width="2" marker-end="url(#arw)"/>
+  <text x="649" y="108" font-size="15.4" text-anchor="middle" fill="#555">adc,volt</text>
+
+  <text x="460" y="197" font-size="17.5" text-anchor="middle" fill="#666">손잡이를 돌리면 A0 전압(0~5V) → analogRead 0~4095 → WiFi로 PC에 전송 → 저장·시각화</text>
+</svg>

@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 260" font-family="'Malgun Gothic','Segoe UI',sans-serif">
+  <defs>
+    <marker id="arwO" markerWidth="12" markerHeight="12" refX="8" refY="4" orient="auto"><path d="M0,0 L9,4 L0,8 Z" fill="#d8a53a"/></marker>
+  </defs>
+  <rect x="0" y="0" width="820" height="260" fill="#ffffff"/>
+  <text x="20" y="30" font-size="23.8" font-weight="bold" fill="#1b1f24">그림 2-4. 방법 C — MQTT 브로커 경유</text>
+
+  <!-- Board -->
+  <rect x="30" y="95" width="200" height="95" rx="10" fill="#d7f0f0" stroke="#0a7d7d" stroke-width="2"/>
+  <text x="130" y="130" font-size="21" font-weight="bold" text-anchor="middle" fill="#065c5c">UNO R4 (발행자)</text>
+  <text x="130" y="156" font-size="17.5" text-anchor="middle" fill="#065c5c">analogRead(A0)</text>
+
+  <!-- Broker -->
+  <rect x="310" y="95" width="200" height="95" rx="14" fill="#fdeecb" stroke="#d8a53a" stroke-width="2"/>
+  <text x="410" y="128" font-size="21" font-weight="bold" text-anchor="middle" fill="#8a6410">MQTT 브로커</text>
+  <text x="410" y="152" font-size="16.1" text-anchor="middle" fill="#8a6410">공개(mosquitto.org)</text>
+  <text x="410" y="170" font-size="16.1" text-anchor="middle" fill="#8a6410">또는 로컬(WSL)</text>
+
+  <!-- PC -->
+  <rect x="590" y="95" width="200" height="95" rx="10" fill="#e8eefc" stroke="#3b6fd6" stroke-width="2"/>
+  <text x="690" y="128" font-size="21" font-weight="bold" text-anchor="middle" fill="#26468f">PC (구독자)</text>
+  <text x="690" y="154" font-size="16.8" text-anchor="middle" fill="#26468f">CSV + 실시간 그래프</text>
+
+  <!-- arrows -->
+  <line x1="232" y1="142" x2="308" y2="142" stroke="#d8a53a" stroke-width="2.5" marker-end="url(#arwO)"/>
+  <text x="270" y="132" font-size="15.4" text-anchor="middle" fill="#8a6410">publish</text>
+  <line x1="512" y1="142" x2="588" y2="142" stroke="#d8a53a" stroke-width="2.5" marker-end="url(#arwO)"/>
+  <text x="550" y="132" font-size="15.4" text-anchor="middle" fill="#8a6410">subscribe</text>
+
+  <text x="410" y="228" font-size="16.8" text-anchor="middle" fill="#666">보드·PC가 직접 연결하지 않고 브로커를 거침 — 같은 TOPIC으로 주고받음 (IoT 표준 방식)</text>
+</svg>

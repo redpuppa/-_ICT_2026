@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 300" font-family="'Malgun Gothic','Segoe UI',sans-serif">
+  <defs>
+    <marker id="c1" markerWidth="11" markerHeight="11" refX="8" refY="4" orient="auto"><path d="M0,0 L9,4 L0,8 Z" fill="#444"/></marker>
+  </defs>
+  <rect x="0" y="0" width="760" height="300" fill="#ffffff"/>
+  <text x="20" y="30" font-size="23.8" font-weight="bold" fill="#1b1f24">그림 2-7. 세 방법의 데이터 방향 비교</text>
+
+  <!-- Row A -->
+  <text x="20" y="88" font-size="18.2" font-weight="bold" fill="#1b1f24">A. 웹서버</text>
+  <rect x="150" y="62" width="150" height="44" rx="8" fill="#d7f0f0" stroke="#0a7d7d" stroke-width="1.8"/>
+  <text x="225" y="89" font-size="17.5" text-anchor="middle" fill="#065c5c">보드 (서버)</text>
+  <rect x="470" y="62" width="150" height="44" rx="8" fill="#e8eefc" stroke="#3b6fd6" stroke-width="1.8"/>
+  <text x="545" y="89" font-size="17.5" text-anchor="middle" fill="#26468f">PC</text>
+  <line x1="468" y1="84" x2="302" y2="84" stroke="#444" stroke-width="2.2" marker-end="url(#c1)"/>
+  <text x="385" y="76" font-size="15.4" text-anchor="middle" fill="#555">PC가 당김(GET)</text>
+
+  <!-- Row B -->
+  <text x="20" y="163" font-size="18.2" font-weight="bold" fill="#1b1f24">B. TCP 푸시</text>
+  <rect x="150" y="137" width="150" height="44" rx="8" fill="#d7f0f0" stroke="#0a7d7d" stroke-width="1.8"/>
+  <text x="225" y="164" font-size="17.5" text-anchor="middle" fill="#065c5c">보드</text>
+  <rect x="470" y="137" width="150" height="44" rx="8" fill="#e8eefc" stroke="#3b6fd6" stroke-width="1.8"/>
+  <text x="545" y="164" font-size="17.5" text-anchor="middle" fill="#26468f">PC (서버)</text>
+  <line x1="302" y1="159" x2="468" y2="159" stroke="#444" stroke-width="2.2" marker-end="url(#c1)"/>
+  <text x="385" y="151" font-size="15.4" text-anchor="middle" fill="#555">보드가 밀기</text>
+
+  <!-- Row C -->
+  <text x="20" y="238" font-size="18.2" font-weight="bold" fill="#1b1f24">C. MQTT</text>
+  <rect x="150" y="212" width="130" height="44" rx="8" fill="#d7f0f0" stroke="#0a7d7d" stroke-width="1.8"/>
+  <text x="215" y="239" font-size="17.5" text-anchor="middle" fill="#065c5c">보드</text>
+  <rect x="315" y="212" width="130" height="44" rx="8" fill="#fdeecb" stroke="#d8a53a" stroke-width="1.8"/>
+  <text x="380" y="239" font-size="17.5" text-anchor="middle" fill="#8a6410">브로커</text>
+  <rect x="490" y="212" width="130" height="44" rx="8" fill="#e8eefc" stroke="#3b6fd6" stroke-width="1.8"/>
+  <text x="555" y="239" font-size="17.5" text-anchor="middle" fill="#26468f">PC</text>
+  <line x1="282" y1="234" x2="313" y2="234" stroke="#444" stroke-width="2.2" marker-end="url(#c1)"/>
+  <line x1="447" y1="234" x2="488" y2="234" stroke="#444" stroke-width="2.2" marker-end="url(#c1)"/>
+
+  <text x="380" y="288" font-size="16.1" text-anchor="middle" fill="#666">핵심 차이 = "누가 서버인가 / 데이터가 어느 방향으로 흐르는가"</text>
+</svg>

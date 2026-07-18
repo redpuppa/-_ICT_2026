@@ -11,7 +11,7 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-  int adcValue = analogRead(A0);
+  int adcValue = analogRead(A0); //어떤 의미
   int delay_val = map(adcValue, 0, 1023, 1000, 2000);
   Serial.println(delay_val);
 

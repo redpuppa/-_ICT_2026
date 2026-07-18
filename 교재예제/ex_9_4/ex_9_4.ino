@@ -49,8 +49,9 @@ void loop() {
   // 시리얼 통신으로 'PICC type: '메세지를 출력한다.
   Serial.print("   PICC type: ");
 
-  // picType 변수에 picc type을 저장한다. 
-  byte piccType = mfrc522.PICC_GetType(mfrc522.uid.sak);
+  // picType 변수에 picc type을 저장한다.
+  // MFRC522 1.4.x는 PICC_Type(enum)을 사용한다 (구버전은 byte였음)
+  MFRC522::PICC_Type piccType = mfrc522.PICC_GetType(mfrc522.uid.sak);
   // 시리얼 통신으로 picc type을 출력한다.
   Serial.println(mfrc522.PICC_GetTypeName(piccType));
 

@@ -9,15 +9,16 @@
 #include <LiquidCrystal_I2C.h>
 
 // LCD I2C address 설정 PCF8574:0x27, PCF8574A:0x3F
-LiquidCrystal_I2C lcd(0x27, 2, 1, 0, 4, 5, 6, 7, 3, POSITIVE);
-//	                    addr, en,rw,rs,d4,d5,d6,d7,bl,blpol
+// johnrickman LiquidCrystal_I2C 라이브러리: (주소, 열, 행)
+LiquidCrystal_I2C lcd(0x27, 16, 2);
 
 void setup()
 {
   // 9600 bps로 시리얼 통신 설정
   Serial.begin(9600);
   // 16X2 LCD 모듈 설정
-  lcd.begin(16,2);
+  lcd.init();          // johnrickman 라이브러리는 init()으로 초기화
+  lcd.backlight();     // 백라이트 켜기
 
   // Arduino LCD, Welcome 표시  
   lcd.setCursor(0,0);

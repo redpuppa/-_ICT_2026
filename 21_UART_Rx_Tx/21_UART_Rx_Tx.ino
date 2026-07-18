@@ -1,5 +1,6 @@
 String rx_str = "";
 
+
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600, SERIAL_8N1);
@@ -12,7 +13,7 @@ void loop() {
     char c = Serial.read();
 
     if(c == '\r' || c == '\n'){
-      Serial.print("받은 문자: ");
+      Serial.print("받은 문자 : ");
       Serial.println(rx_str);
       rx_str = "";
     }

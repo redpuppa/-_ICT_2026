@@ -18,7 +18,8 @@ import requests
 import matplotlib.pyplot as plt
 
 # ── 설정 ─────────────────────────────────────────────
-BOARD_URL = "http://192.168.0.50"   # ★ 보드 IP로 변경
+BOARD_URL = "http://192.168.0.11"   # ★ 보드 IP로 변경 (루트 / 는 HTML 대시보드)
+DATA_URL  = BOARD_URL + "/data"     # CSV(adc,volt)를 돌려주는 엔드포인트
 INTERVAL  = 1.0                     # 수집 주기(초)
 CSV_PATH  = "adc_log_A.csv"         # 저장 파일
 WINDOW    = 100                     # 그래프에 표시할 최근 표본 수
@@ -41,7 +42,7 @@ with open(CSV_PATH, "w", newline="", encoding="utf-8") as f:
     try:
         while True:
             try:
-                text = requests.get(BOARD_URL, timeout=2).text.strip()
+                text = requests.get(DATA_URL, timeout=2).text.strip()
                 adc_s, volt_s = text.split(",")
                 adc, volt = int(adc_s), float(volt_s)
             except Exception as e:

@@ -1,5 +1,5 @@
 /*
- 예제 6.7
+ 예제 9.5
  초음파 거리센서를 이용한 거리 측정
 */
 
@@ -14,7 +14,7 @@ int distanceOld;
   
 void setup() {
   // 시리얼 통신 설정
-  Serial.begin (9600);
+  Serial.begin(9600);
   // 트리거 핀은 출력으로, 에코핀은 입력으로 설정
   pinMode(trigPin, OUTPUT);
   pinMode(echoPin, INPUT);
@@ -33,8 +33,8 @@ void loop(){
   // 거리를 계산한다.
   distance = pulseWidth / 58;  
 
-  // 감지거리인 2~200cm 범위의 거리값만 사용한다.
-  if(distance <= 200 || distance >= 2){  
+  // 감지거리인 2~200cm 범위의 거리값만 사용한다. (범위 조건은 && 이어야 함)
+  if(distance >= 2 && distance <= 200){
     // 이전의 거리값과 비교하여 변화가 있을 경우에만 시리얼 통신으로 전송한다.    
     if(distance != distanceOld){
       Serial.print(distance);

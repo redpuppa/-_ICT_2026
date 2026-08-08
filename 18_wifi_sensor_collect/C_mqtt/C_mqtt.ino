@@ -37,7 +37,9 @@ void setup() {
 
   Serial.print("WiFi 연결 중");
   WiFi.begin(SECRET_SSID, SECRET_PASS);
-  while (WiFi.status() != WL_CONNECTED) {
+  // WL_CONNECTED 이면서 실제 IP(DHCP)를 받을 때까지 대기
+  // (실패 시 0.0.0.0으로 넘어가는 것을 방지)
+  while (WiFi.status() != WL_CONNECTED || WiFi.localIP() == IPAddress(0, 0, 0, 0)) {
     delay(500);
     Serial.print(".");
   }

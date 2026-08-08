@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 300" font-family="'Malgun Gothic','Segoe UI',sans-serif">
+  <defs>
+    <marker id="arw" markerWidth="12" markerHeight="12" refX="8" refY="4" orient="auto"><path d="M0,0 L9,4 L0,8 Z" fill="#555"/></marker>
+  </defs>
+  <rect x="0" y="0" width="900" height="300" fill="#ffffff"/>
+  <text x="20" y="30" font-size="23.8" font-weight="bold" fill="#1b1f24">그림 2. 테스트 절차 흐름도</text>
+
+  <!-- step boxes -->
+  <g font-size="15" text-anchor="middle">
+    <!-- 1 -->
+    <rect x="20" y="90" width="140" height="90" rx="10" fill="#f1f3f5" stroke="#888" stroke-width="2"/>
+    <text x="90" y="120" font-weight="bold" fill="#222">① 준비</text>
+    <text x="90" y="142" fill="#444">배선·라이브러리</text>
+    <text x="90" y="160" fill="#444">secrets.h 설정</text>
+
+    <!-- 2 -->
+    <rect x="196" y="90" width="140" height="90" rx="10" fill="#d7f0f0" stroke="#0a7d7d" stroke-width="2"/>
+    <text x="266" y="120" font-weight="bold" fill="#065c5c">② 보드 업로드</text>
+    <text x="266" y="142" fill="#065c5c">시리얼 모니터로</text>
+    <text x="266" y="160" fill="#065c5c">발행/구독 확인</text>
+
+    <!-- 3 -->
+    <rect x="372" y="90" width="140" height="90" rx="10" fill="#e8eefc" stroke="#3b6fd6" stroke-width="2"/>
+    <text x="442" y="120" font-weight="bold" fill="#26468f">③ PC 실행</text>
+    <text x="442" y="142" fill="#26468f">pc_collect_C.py</text>
+    <text x="442" y="160" fill="#26468f">CSV·그래프 확인</text>
+
+    <!-- 4 -->
+    <rect x="548" y="90" width="140" height="90" rx="10" fill="#fdeecb" stroke="#d8a53a" stroke-width="2"/>
+    <text x="618" y="115" font-weight="bold" fill="#8a6410">④ LED 명령</text>
+    <text x="618" y="136" fill="#8a6410">그래프 창에서</text>
+    <text x="618" y="154" fill="#8a6410">o/f 키 입력</text>
+    <text x="618" y="172" fill="#8a6410">→ 3곳 동시 확인</text>
+
+    <!-- 5 -->
+    <rect x="724" y="90" width="150" height="90" rx="10" fill="#e6f4ea" stroke="#2e7d32" stroke-width="2"/>
+    <text x="799" y="120" font-weight="bold" fill="#1e5e28">⑤ 성공 판정</text>
+    <text x="799" y="142" fill="#1e5e28">3곳 모두 일치 +</text>
+    <text x="799" y="160" fill="#1e5e28">LED 실제 점/소등</text>
+  </g>
+
+  <!-- arrows -->
+  <line x1="160" y1="135" x2="194" y2="135" stroke="#555" stroke-width="2.5" marker-end="url(#arw)"/>
+  <line x1="336" y1="135" x2="370" y2="135" stroke="#555" stroke-width="2.5" marker-end="url(#arw)"/>
+  <line x1="512" y1="135" x2="546" y2="135" stroke="#555" stroke-width="2.5" marker-end="url(#arw)"/>
+  <line x1="688" y1="135" x2="722" y2="135" stroke="#555" stroke-width="2.5" marker-end="url(#arw)"/>
+
+  <!-- optional branch: troubleshooting -->
+  <rect x="196" y="220" width="516" height="55" rx="10" fill="#fdecec" stroke="#c94f4f" stroke-width="2" stroke-dasharray="5,4"/>
+  <text x="454" y="242" font-size="15" font-weight="bold" text-anchor="middle" fill="#a13a3a">⑥ (막히면) 문제 해결 체크리스트 — 표 2 참고</text>
+  <text x="454" y="262" font-size="13.5" text-anchor="middle" fill="#a13a3a">CLI 교차검증(mosquitto_sub/pub)도 이 단계에서 함께 활용</text>
+  <line x1="266" y1="180" x2="266" y2="218" stroke="#c94f4f" stroke-width="2" stroke-dasharray="4,3" marker-end="url(#arw)"/>
+  <line x1="442" y1="180" x2="442" y2="218" stroke="#c94f4f" stroke-width="2" stroke-dasharray="4,3" marker-end="url(#arw)"/>
+  <line x1="618" y1="180" x2="618" y2="218" stroke="#c94f4f" stroke-width="2" stroke-dasharray="4,3" marker-end="url(#arw)"/>
+</svg>

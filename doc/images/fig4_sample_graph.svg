@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 380" font-family="'Malgun Gothic','Segoe UI',sans-serif">
+  <rect x="0" y="0" width="760" height="380" fill="#ffffff"/>
+  <text x="20" y="30" font-size="23.8" font-weight="bold" fill="#1b1f24">그림 4. 예시 그래프 — pc_collect_C.py 실행 화면</text>
+
+  <!-- plot frame -->
+  <rect x="70" y="45" width="640" height="255" fill="#fbfcfe" stroke="#d0d7de" stroke-width="1"/>
+
+  <!-- gridlines + y labels -->
+  <g stroke="#e6e9ee" stroke-width="1">
+    <line x1="70" y1="300" x2="710" y2="300"/>
+    <line x1="70" y1="235" x2="710" y2="235"/>
+    <line x1="70" y1="170" x2="710" y2="170"/>
+    <line x1="70" y1="105" x2="710" y2="105"/>
+    <line x1="70" y1="45"  x2="710" y2="45"/>
+  </g>
+  <g font-size="15" fill="#666" text-anchor="end">
+    <text x="62" y="304">0</text>
+    <text x="62" y="239">1024</text>
+    <text x="62" y="174">2048</text>
+    <text x="62" y="109">3072</text>
+    <text x="62" y="49">4095</text>
+  </g>
+
+  <!-- x labels -->
+  <g font-size="15" fill="#666" text-anchor="middle">
+    <text x="70"  y="318">0</text>
+    <text x="172" y="318">10</text>
+    <text x="273" y="318">20</text>
+    <text x="375" y="318">30</text>
+    <text x="477" y="318">40</text>
+    <text x="578" y="318">50</text>
+    <text x="680" y="318">60</text>
+  </g>
+  <text x="390" y="342" font-size="16" text-anchor="middle" fill="#444">시간 (s)  ·  adc_log_C.csv 로 저장됨</text>
+  <text x="24" y="175" font-size="16" text-anchor="middle" fill="#444" transform="rotate(-90 24 175)">ADC (0~4095)</text>
+
+  <!-- data line: sensor value keeps flowing regardless of LED command -->
+  <polyline fill="none" stroke="#0a7d7d" stroke-width="2.5"
+    points="70,190 130,175 190,160 250,150 310,148 370,158 430,175 490,192 550,200 610,190 670,172 710,160"/>
+  <g fill="#0a7d7d">
+    <circle cx="70" cy="190" r="3"/><circle cx="130" cy="175" r="3"/><circle cx="190" cy="160" r="3"/>
+    <circle cx="250" cy="150" r="3"/><circle cx="310" cy="148" r="3"/><circle cx="370" cy="158" r="3"/>
+    <circle cx="430" cy="175" r="3"/><circle cx="490" cy="192" r="3"/><circle cx="550" cy="200" r="3"/>
+    <circle cx="610" cy="190" r="3"/><circle cx="670" cy="172" r="3"/><circle cx="710" cy="160" r="3"/>
+  </g>
+
+  <!-- annotation: LED ON command at t=30s -->
+  <line x1="375" y1="45" x2="375" y2="300" stroke="#3b6fd6" stroke-width="2" stroke-dasharray="6,4"/>
+  <circle cx="375" cy="45" r="4" fill="#3b6fd6"/>
+  <text x="382" y="60" font-size="13.5" fill="#26468f">o 키 → LED ON 발행</text>
+
+  <!-- annotation: LED OFF command at t=48s -->
+  <line x1="560" y1="45" x2="560" y2="300" stroke="#c94f4f" stroke-width="2" stroke-dasharray="6,4"/>
+  <circle cx="560" cy="45" r="4" fill="#c94f4f"/>
+  <text x="567" y="60" font-size="13.5" fill="#a13a3a">f 키 → LED OFF 발행</text>
+
+  <text x="390" y="358" font-size="14" text-anchor="middle" fill="#888">센서값(data)은 LED 명령과 무관하게 1초 간격으로 계속 그려짐 — 두 토픽이 독립적으로 동작함을 확인</text>
+</svg>

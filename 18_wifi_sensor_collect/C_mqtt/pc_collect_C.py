@@ -30,9 +30,9 @@ import paho.mqtt.client as mqtt
 BROKER   = "test.mosquitto.org"
 # [방식 2] 로컬 브로커(WSL): 이 수집기를 Windows에서 실행하면 보통 "localhost"
 #          (미러 네트워킹) 또는 포트프록시 설정 시에도 "localhost". 자세한 건 README 2.4.
-# BROKER   = "localhost"
+#BROKER   = "localhost"
 PORT       = 1883
-BASE_TOPIC = "ict2026/uno_r4/mhlee"     # ★ 보드 스케치의 BASE_TOPIC과 동일하게
+BASE_TOPIC = "utech/uno_r4/soony"       # ★ 보드 스케치의 BASE_TOPIC과 동일하게
 
 DATA_TOPIC      = BASE_TOPIC + "/data"        # 구독(보드→PC): "adc,volt"
 LED_SET_TOPIC   = BASE_TOPIC + "/led/set"     # 발행(PC→보드): "1"(ON) / "0"(OFF)

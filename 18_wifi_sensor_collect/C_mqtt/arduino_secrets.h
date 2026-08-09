@@ -1,4 +1,0 @@
-// WiFi 접속 정보 — 실제 값으로 채우세요.
-// ※ 공개 저장소(GitHub 등)에 올릴 때는 실제 비밀번호가 남지 않도록 주의!
-#define SECRET_SSID "netis 2G"
-#define SECRET_PASS "codename007@"
